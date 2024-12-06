@@ -1,0 +1,19 @@
+/project-root
+    /assets
+        /images
+            tinton-tigers-logo.png
+            tigers-lair.jpg
+            event-placeholder.jpg
+        /fonts
+            (if custom fonts are used)
+    /css
+        styles.css
+    /js
+        script.js
+    /data
+        events.json (optional for easier data management)
+    index.html
+    events.html
+    tickets.html
+    info.html
+    planner.html
