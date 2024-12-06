@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase Tickets - The Tiger's Lair</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header id="header">
+        <nav class="navbar">
+            <div class="logo">
+                <img src="assets/images/tinton-tigers-logo.png" alt="Tinton Tigers Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Calendar</a></li>
+                <li><a href="tickets.html">Box Office</a></li>
+                <li><a href="info.html">Information</a></li>
+                <li><a href="planner.html">Planner</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="ticket-purchase">
+        <div class="container">
+            <h1 id="event-title">Event Title</h1>
+            <p id="event-date"></p>
+            <p id="event-time"></p>
+            <p id="event-location"></p>
+
+            <form id="ticket-form">
+                <label for="ticket-quantity">Ticket Quantity:</label>
+                <input type="number" id="ticket-quantity" name="ticket-quantity" min="1" max="10" value="1">
+                
+                <button type="submit" class="cta-button">Proceed to Checkout</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="footer-container">
+            <p>&copy; 2024 Tinton Tigers. All Rights Reserved.</p>
+            <ul class="social-media">
+                <li><a href="https://twitter.com/TintonTigers" target="_blank">Twitter</a></li>
+                <li><a href="https://facebook.com/TintonTigers" target="_blank">Facebook</a></li>
+                <li><a href="https://instagram.com/TintonTigers" target="_blank">Instagram</a></li>
+            </ul>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
