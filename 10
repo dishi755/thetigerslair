@@ -1,0 +1,30 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const plannerForm = document.getElementById('planner-form');
+    const confirmationMessage = document.getElementById('confirmation-message');
+
+    if (plannerForm) {
+        plannerForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(plannerForm);
+            const eventName = formData.get('event-name');
+            const eventType = formData.get('event-type');
+            const eventDate = formData.get('event-date');
+            const attendees = formData.get('attendees');
+            const eventDetails = formData.get('event-details');
+
+            // Normally, you'd send this data to a backend server using AJAX or a form action
+            console.log({
+                eventName,
+                eventType,
+                eventDate,
+                attendees,
+                eventDetails
+            });
+
+            // Show confirmation message
+            confirmationMessage.style.display = 'block';
+            plannerForm.reset();
+        });
+    }
+});
