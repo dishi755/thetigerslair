@@ -1,0 +1,37 @@
+// Find the event by ID
+if (eventId) {
+    const eventDetails = events.find(e => e.id == eventId);
+    document.getElementById('event-title').textContent = eventDetails.name;
+    document.getElementById('event-date').textContent = `Date: ${eventDetails.date}`;
+    document.getElementById('event-time').textContent = `Time: ${eventDetails.time}`;
+    document.getElementById('event-location').textContent = `Location: ${eventDetails.location}`;
+
+    // Handle ticket booking form
+    const ticketForm = document.getElementById('ticket-form');
+    ticketForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const ticketQuantity = document.getElementById('ticket-quantity').value;
+        if (ticketQuantity <= 0) {
+            alert("Please select a valid ticket quantity.");
+            return;
+        }
+
+        alert(`Your ticket(s) for "${eventDetails.name}" have been successfully booked! You selected ${ticketQuantity} ticket(s).`);
+        // Here you can integrate payment processing (Stripe, PayPal, etc.)
+    });
+}
+
+// Dynamically populate the event information in tickets.html
+document.addEventListener("DOMContentLoaded", function () {
+    const ticketFormSection = document.getElementById('ticket-form-section');
+    if (!ticketFormSection) return;
+
+    const eventId = new URLSearchParams(window.location.search).get('event');
+    const event = events.find(event => event.id === parseInt(eventId));
+
+    if (event) {
+        const eventTitle = document.getElementById('event-title');
+        eventTitle.textContent = `${event.name}`;
+    }
+});
