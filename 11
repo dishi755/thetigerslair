@@ -1,0 +1,7 @@
+const express = require('express');const nodemailer = require('nodemailer');const app = express();
+// Middleware for parsing incoming requestsapp.use(express.json());app.use(express.urlencoded({ extended: true }));
+// Route to handle planner form submissionsapp.post('/submit-planner-form', (req, res) => {    const { eventName, eventType, eventDate, attendees, eventDetails } = req.body;
+    // Example of sending an email confirmation (using nodemailer)    const transporter = nodemailer.createTransport({        service: 'gmail',        auth: {            user: 'your-email@gmail.com',            pass: 'your-email-password'        }    });
+    const mailOptions = {        from: 'your-email@gmail.com',        to: 'user-email@example.com',        subject: 'Event Inquiry Received',        text: `Thank you for your event inquiry!\n\nEvent Name: ${eventName}\nEvent Type: ${eventType}\nDate: ${eventDate}\nAttendees: ${attendees}\nEvent Details: ${eventDetails}`    };
+    transporter.sendMail(mailOptions, (error, info) => {        if (error) {            console.log('Error sending email:', error);            return res.status(500).send('Error sending email');        }        console.log('Email sent:', info.response);        res.status(200).send('Event inquiry submitted successfully');    });});
+// Start the serverapp.listen(3000, () => {    console.log('Server is running on port 3000');});
